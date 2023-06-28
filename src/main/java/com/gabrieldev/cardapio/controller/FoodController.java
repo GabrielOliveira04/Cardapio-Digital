@@ -16,10 +16,12 @@ public class FoodController {
 
     @Autowired
     FoodRepository repository;
-
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @PostMapping
     public void saveFood(@RequestBody FoodResquestDTO data){
-        
+        Food foodData = new Food(data);
+        repository.save(foodData);
+        return;
     }
 
 
